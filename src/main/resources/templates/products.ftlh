@@ -20,6 +20,10 @@
     Город: <input type="text" name="city"/><br><br>
     Имя: <input type="text" name="author"/><br><br>
     <input type="submit" value="Добавить товар"/>
+<p>
+    <textarea name="comment" id="comment" placeholder="Не более 200 символов" maxlength=""></textarea>
+</p>
+
 </form>
 </body>
 </html>

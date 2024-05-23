@@ -14,6 +14,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class ProductController {
     private final ProductService productService;
 
+   // @GetMapping("/example") выглядит значительно проще и понятнее,
+   // чем более громоздкое @RequestMapping(value = "/example", method = RequestMethod.GET),
+   // что повышает читаемость кода.
+
+   // У аннотации @RequestMapping можно задать следующие параметры:
+   // value — для указания адреса;
+   //method — определяет метод доступа;
+   //consumes — определяет тип содержимого тела запроса;
+   //produces — определяет формат возвращаемого методом значения;
+   //params — позволяет отфильтровать запросы по наличию или отсутствию определённого параметра в запросе или по его значению;
+   //headers — позволяет отфильтровать запросы по наличию или отсутствию определённого заголовка в запросе или по его значению.
 
     @GetMapping("/")
     public String products(Model model) {
@@ -28,7 +39,7 @@ public class ProductController {
     }
 
 
-    @PostMapping("/product/create")
+    @PostMapping("/product/create") // метод POST предназначен для отправки данных на сервер
     public String createProduct(Product product) {
         productService.saveProduct(product);
         return "redirect:/";
